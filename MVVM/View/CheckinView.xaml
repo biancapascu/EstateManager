@@ -29,10 +29,10 @@
                    FontSize="28"
                    HorizontalAlignment="Center"
                    FontFamily="/Fonts/#Poppins"/>
-        <Border Margin="50 70 50 30" Style="{StaticResource border}">
-            <Border Margin="400 5 50 5" Background="#f0f0f0" CornerRadius="5">
+        <Border Margin="50,70,50,30" Style="{StaticResource border}">
+            <Border Margin="400,10,10,10" Background="#f0f0f0" CornerRadius="5">
                 <Grid x:Name="grid1" DataContext="{StaticResource recordsViewSource}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                      Height="382" Width="290" Margin="20 0 0 0">
+                      Height="382" Width="310">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
@@ -89,8 +89,27 @@
                 </Grid>
             </Border>
         </Border>
-        <Border Margin="50 70 450 30" Style="{StaticResource border}">
-
+        <Border Margin="50,70,470,30" Style="{StaticResource border}">
+            <materialDesign:PackIcon Kind="AccountPlus" 
+                                                 Width="70" Height="70" 
+                                                 Foreground="White"
+                                                 HorizontalAlignment="Center" Margin="145,130,145,0" />
         </Border>
+        <Grid Margin="50,284,441,51">
+            <TextBlock Text="Check-in your clients"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       FontFamily="/Fonts/#Poppins"
+                       Foreground="White"
+                       FontSize="16"/>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                <Button x:Name="btnAdd" Style="{DynamicResource MaterialDesignOutlinedButton}"
+                    Content="Add" Margin="0 0 20 0"
+                    Foreground="White" BorderBrush="White" Click="btnAdd_Click"/>
+                <Button x:Name="btnCancel" Style="{DynamicResource MaterialDesignOutlinedButton}"
+                    Content="Cancel"
+                    Foreground="White" BorderBrush="White" Click="btnCancel_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

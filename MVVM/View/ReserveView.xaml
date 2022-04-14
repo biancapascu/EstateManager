@@ -4,10 +4,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EstateManager.MVVM.View"
-              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:scheduler="http://schemas.syncfusion.com/wpf"
+             xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:EstateManager.MVVM.ViewModel"
+             syncfusionskin:SfSkinManager.VisualStyle="MaterialDark"
              mc:Ignorable="d" 
              d:DesignHeight="540" d:DesignWidth="900">
-    <Grid>
-            
+    <UserControl.DataContext>
+        <local1:ReserveViewModel/>
+    </UserControl.DataContext>
+    <Grid Margin="10">
+        <scheduler:SfScheduler x:Name="scheduler" ViewType="Month" ItemsSource="{Binding Reservations}">
+            <scheduler:SfScheduler.AppointmentMapping>
+                <scheduler:AppointmentMapping Subject="Subject"
+                                              StartTime="StartTime"
+                                              EndTime="EndTime"/>
+            </scheduler:SfScheduler.AppointmentMapping>
+            <syncfusion:SfScheduler.MonthViewSettings>
+                <syncfusion:MonthViewSettings ShowAgendaView="True"/>
+            </syncfusion:SfScheduler.MonthViewSettings>
+        </scheduler:SfScheduler>
     </Grid>
 </UserControl>

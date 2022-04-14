@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1180" ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen" AllowsTransparency="True"
-        Background="Transparent" WindowStyle="None" MouseDown="Window_MouseDown">
+        Background="Transparent" WindowStyle="None">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
@@ -52,7 +52,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel Margin="10 0 0 0">
-                <Button Style="{StaticResource activeMenuButton}">
+                <Button Style="{StaticResource menuButton}" Command="{Binding HomeViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
@@ -76,7 +76,7 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton}" Command="{Binding ReserveViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
@@ -88,7 +88,7 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton}" Command="{Binding CheckinViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
@@ -161,7 +161,7 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton}" Click="Logout_Click">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">

@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EstateManager.MVVM.View"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="940" Background="Transparent">
     <Grid>
@@ -24,6 +26,231 @@
                    FontSize="28"
                    HorizontalAlignment="Center"
                    FontFamily="/Fonts/#Poppins"/>
-        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <!--Dashboard Section-->
+            <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,10">
+                <Border Width="400"
+                    Height="200">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#bdc3c7" Offset="0.0"/>
+                            <GradientStop Color="#3aa0ff" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" 
+                                       RadiusY="10"
+                                       Rect="0,0,400,200"/>
+                    </Border.Clip>
+
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Welcome&#xA;back"
+                                   Foreground="White"
+                                   FontSize="28"
+                                   Margin="20,10,10,0"
+                                   FontFamily="/Fonts/#Poppins"/>
+
+                            <TextBlock Text="Let's start!"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Margin="20,10,10,0"
+                                   FontFamily="/Fonts/#Poppins"/>
+                        </StackPanel>
+
+                        <Image Width="500" 
+                           Height="233" 
+                           Source="/Images/notebook.png"
+                           HorizontalAlignment="Center" 
+                           Margin="64,0,-164,-33"
+                           RenderTransformOrigin="20,20"/>
+
+                    </Grid>
+                </Border>
+
+                <Border Width="210"
+                    Height="115"
+                    CornerRadius="10"
+                    Margin="40,0,0,0">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#9bafd9" Offset="0.0"/>
+                            <GradientStop Color="#103783" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <materialDesign:MaterialDateDisplay Foreground="White" 
+                                                    FontFamily="/Fonts/#Poppins"
+                                                    Margin="15,15,0,0"/>
+
+
+                </Border>
+            </StackPanel>
+            <!--End Dashboard Section-->
+
+            <!--Action Section-->
+            <StackPanel>
+
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Margin" Value="15,0,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock Text="Charts" 
+                   Foreground="White"
+                   FontSize="22"
+                   HorizontalAlignment="Left"
+                   Margin="0,10,0,10"
+                   FontFamily="/Fonts/#Poppins"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Border Width="150"
+                        Height="150"
+                        CornerRadius="10"
+                        Margin="0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#3b1a5c" Offset="1"/>
+                                <GradientStop Color="#B589D6" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.Clip>
+                            <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,150"/>
+                        </Border.Clip>
+                        <Grid>
+                            <Ellipse Width="168" Margin="0,-90,-85,85" HorizontalAlignment="Right">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                        <GradientStop Color="#B589D6" Offset="1"/>
+                                        <GradientStop Color="#B589D6" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <materialDesign:PackIcon Kind="PeopleGroup" 
+                                                 Width="30" Height="30" 
+                                                 Foreground="White"
+                                                 Margin="110,15,0,0"/>
+                            <TextBlock Text="Total bookings"
+                               Foreground="White"
+                               FontSize="16"
+                               TextAlignment="Center"
+                               Margin="0,65,0,0"
+                               FontFamily="/Fonts/#Poppins"/>
+                        </Grid>
+
+                    </Border>
+
+                    <Border Width="150"
+                        Height="150"
+                        CornerRadius="10">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#3b1a5c" Offset="1"/>
+                                <GradientStop Color="#B589D6" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.Clip>
+                            <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,150"/>
+                        </Border.Clip>
+                        <Grid>
+                            <Ellipse Width="168" Margin="0,-90,-85,85" HorizontalAlignment="Right">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                        <GradientStop Color="#B589D6" Offset="1"/>
+                                        <GradientStop Color="#B589D6" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <materialDesign:PackIcon Kind="BarChart" 
+                                                 Width="30" Height="30" 
+                                                 Foreground="White"
+                                                 Margin="110,15,0,0"/>
+                            <TextBlock Text="Peak seasons"
+                               Foreground="White"
+                               FontSize="16"
+                               TextAlignment="Center"
+                               Margin="0,65,0,0"
+                               FontFamily="/Fonts/#Poppins"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Width="150"
+                        Height="150"
+                        CornerRadius="10">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#3b1a5c" Offset="1"/>
+                                <GradientStop Color="#B589D6" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.Clip>
+                            <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,150"/>
+                        </Border.Clip>
+                        <Grid>
+                            <Ellipse Width="168" Margin="0,-90,-85,85" HorizontalAlignment="Right">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                        <GradientStop Color="#B589D6" Offset="1"/>
+                                        <GradientStop Color="#B589D6" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <materialDesign:PackIcon Kind="Star" 
+                                                 Width="30" Height="30" 
+                                                 Foreground="White"
+                                                 Margin="110,15,0,0"/>
+                            <TextBlock Text="Most wanted"
+                               Foreground="White"
+                               FontSize="16"
+                               TextAlignment="Center"
+                               Margin="0,65,0,0"
+                               FontFamily="/Fonts/#Poppins"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Width="150"
+                        Height="150"
+                        CornerRadius="10">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#3b1a5c" Offset="1"/>
+                                <GradientStop Color="#B589D6" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.Clip>
+                            <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,150"/>
+                        </Border.Clip>
+                        <Grid>
+                            <Ellipse Width="168" Margin="0,-90,-85,85" HorizontalAlignment="Right">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                        <GradientStop Color="#B589D6" Offset="1"/>
+                                        <GradientStop Color="#B589D6" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <materialDesign:PackIcon Kind="SwimmingPool" 
+                                                 Width="30" Height="30" 
+                                                 Foreground="White"
+                                                 Margin="110,15,0,0"/>
+                            <TextBlock Text="Top services"
+                               Foreground="White"
+                               FontSize="16"
+                               TextAlignment="Center"
+                               Margin="0,65,0,0"
+                               FontFamily="/Fonts/#Poppins"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+
+            </StackPanel>
+            <!--End Action Section-->
+
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -23,11 +23,7 @@ namespace EstateManager
         public MainWindow()
         {
             InitializeComponent();
-        }
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+            Application.Current.MainWindow = this;
         }
         private void Minimize(object sender, MouseButtonEventArgs e)
         {
@@ -48,6 +44,19 @@ namespace EstateManager
             if (Result.Value)
             {
                 Application.Current.Shutdown();
+            }
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            bool? Result = new CustomMessageBox("Are you sure you want to logout? ", MessageType.Confirmation, MessageButtons.YesNo).ShowDialog();
+
+            if (Result.Value)
+            {
+                this.Hide();
+                Window mainWindow = Application.Current.MainWindow;
+                Window loginWindow = new Login();
+                loginWindow.Show();
             }
         }
     }

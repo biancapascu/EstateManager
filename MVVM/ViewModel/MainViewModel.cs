@@ -7,9 +7,11 @@ namespace EstateManager.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand CheckinViewCommand { get; set; }
+        public RelayCommand ReserveViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public CheckinViewModel CheckinVM { get; set; }
+        public ReserveViewModel ReserveVM { get; set; }
 
         private object _currentView;
 
@@ -27,6 +29,7 @@ namespace EstateManager.MVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             CheckinVM = new CheckinViewModel();
+            ReserveVM = new ReserveViewModel();
 
             CurrentView = HomeVM;
 
@@ -37,6 +40,10 @@ namespace EstateManager.MVVM.ViewModel
             CheckinViewCommand = new RelayCommand((o =>
             {
                 CurrentView = CheckinVM;
+            }));
+            ReserveViewCommand = new RelayCommand((o =>
+            {
+                CurrentView = ReserveVM;
             }));
         }
     }

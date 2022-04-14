@@ -5,7 +5,7 @@
              xmlns:viewModel="clr-namespace:EstateManager.MVVM.ViewModel"
              xmlns:view="clr-namespace:EstateManager.MVVM.View"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             StartupUri="Login.xaml">
+             StartupUri="MainWindow.xaml">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -27,6 +27,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:CheckinViewModel}">
                 <view:CheckinView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ReserveViewModel}">
+                <view:ReserveView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
