@@ -21,6 +21,11 @@ namespace DatabaseModel
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Accomodation>()
+                .HasMany(e => e.Records)
+                .WithRequired(e => e.Accomodation1)
+                .HasForeignKey(e => e.Accomodation);
+
             modelBuilder.Entity<Records>()
                 .Property(e => e.Phone)
                 .IsFixedLength();

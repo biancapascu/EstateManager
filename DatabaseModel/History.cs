@@ -10,7 +10,6 @@ namespace DatabaseModel
     public partial class History
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdHistory { get; set; }
 
         [Required]
