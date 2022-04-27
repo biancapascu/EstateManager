@@ -12,7 +12,7 @@ namespace EstateManager
     {
         public static SqlConnection GetDBConnection()
         {
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\AplicatieLicenta\\EstateManager\\Database.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("data source=(LocalDB)\\MSSQLLocalDB;attachdbfilename=C:\\Users\\bianca\\Desktop\\AplicatieLicenta\\EstateManager\\Database.mdf;integrated security=True");
             if (connection.State != ConnectionState.Open)
             {
                 connection.Open();
@@ -38,7 +38,7 @@ namespace EstateManager
 
         public static void CloseDBConnection()
         {
-            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\AplicatieLicenta\\EstateManager\\Database.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("data source=(LocalDB)\\MSSQLLocalDB;attachdbfilename=C:\\Users\\bianca\\Desktop\\AplicatieLicenta\\EstateManager\\Database.mdf;integrated security=True");
             if (connection.State != ConnectionState.Closed)
             {
                 connection.Close();

@@ -26,18 +26,13 @@ namespace EstateManager.MVVM.View
         public ReserveView()
         {
             InitializeComponent();
-            this.scheduler.AppointmentEditorClosing += OnSchedulerAppointmentEditorClosing;
-            this.scheduler.AppointmentEditorOpening += OnSchedulerAppointmentEditorOpening;
-        }
-        private void OnSchedulerAppointmentEditorOpening(object sender, AppointmentEditorOpeningEventArgs e)
-        {
-            e.AppointmentEditorOptions = AppointmentEditorOptions.All | (~AppointmentEditorOptions.Background & ~AppointmentEditorOptions.Foreground & ~AppointmentEditorOptions.Reminder & ~AppointmentEditorOptions.Resource);
+            this.Scheduler.AppointmentEditorClosing += OnSchedulerAppointmentEditorClosing;
         }
         private void OnSchedulerAppointmentEditorClosing(object sender, AppointmentEditorClosingEventArgs e)
         {
             if (e.Action == AppointmentEditorAction.Add)
             {
-                string sqlAdd = "INSERT INTO Reservations ([Subject],[StartTime],[EndTime]) VALUES('" + e.Appointment.Subject + "', '" + e.Appointment.StartTime.ToString("yyyy-MM-dd HH:mm:ss") + "' , '" + e.Appointment.EndTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                string sqlAdd = "INSERT INTO Reservations ([Subject],[StartTime],[EndTime],[Location],[Notes]) VALUES('" + e.Appointment.Subject + "', '" + e.Appointment.StartTime.ToString("yyyy-MM-dd HH:mm:ss") + "' , '" + e.Appointment.EndTime.ToString("yyyy-MM-dd HH:mm:ss") + "' , '" + e.Appointment.Location + "' , '" + e.Appointment.Notes + "')";
                 ConnectDB.ExecuteSQLQuery(sqlAdd);
             }
             else if (e.Action == AppointmentEditorAction.Delete)
@@ -47,7 +42,7 @@ namespace EstateManager.MVVM.View
             }
             else if (e.Action == AppointmentEditorAction.Edit)
             {
-                string sqlUpdate = "UPDATE Reservations set StartTime='" + e.Appointment.StartTime + "',EndTime='" + e.Appointment.EndTime + "' where Subject='" + e.Appointment.Subject + "';";
+                string sqlUpdate = "UPDATE Reservations set StartTime='" + e.Appointment.StartTime + "',EndTime='" + e.Appointment.EndTime + "',Location='" + e.Appointment.Location + "',Notes='" + e.Appointment.Notes + "' where Subject='" + e.Appointment.Subject + "';";
                 ConnectDB.ExecuteSQLQuery(sqlUpdate);
             }
         }

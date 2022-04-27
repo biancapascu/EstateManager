@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="EstateManager.MVVM.View.UsersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EstateManager.MVVM.View"
+             xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="900" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="recordsViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Records}, CreateList=True}"/>
+        <CollectionViewSource x:Key="usersViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Users}, CreateList=True}"/>
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource usersViewSource}">
+        <!--Background-->
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#3E3A65" Offset="0"/>
+                    <GradientStop Color="#473765" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <TextBlock Text="User accounts" 
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Center"
+                   FontFamily="/Fonts/#Poppins"/>
+        <Border Margin="50,70,50,30" Style="{StaticResource border}">
+            <DataGrid x:Name="usersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" HorizontalAlignment="Right" VerticalAlignment="Top" RowDetailsVisibilityMode="VisibleWhenSelected" ColumnHeaderHeight="50" Height="420">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="usernameColumn" Binding="{Binding Username}" Header="Username" Width="150"/>
+                    <DataGridTextColumn x:Name="passwordColumn" Binding="{Binding Password}" Header="Password" Width="150"/>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="50" />
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+        </Border>
+        <Border Margin="50,70,470,30" Style="{StaticResource border}">
+            <materialDesign:PackIcon Kind="AccountCircle" 
+                                                 Width="90" Height="90" 
+                                                 Foreground="White"
+                                                 HorizontalAlignment="Center" Margin="140,100,140,0" />
+        </Border>
+        <Grid Margin="50,284,441,51">
+            <TextBlock Text="Manage user accounts"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       FontFamily="/Fonts/#Poppins"
+                       Foreground="White"
+                       FontSize="16"/>
+            <Grid x:Name="grid1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Password:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" Foreground="White" FontWeight="SemiBold"/>
+                <TextBox x:Name="passwordTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Foreground="White" Text="{Binding Password, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Username:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" Foreground="White" FontWeight="SemiBold"/>
+                <TextBox x:Name="usernameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Foreground="White" Text="{Binding Username, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="399">
+                <Button x:Name="btnAdd" Style="{DynamicResource MaterialDesignOutlinedButton}"
+                    Content="Add" Margin="0 0 20 0"
+                    Foreground="White" BorderBrush="White" />
+                <Button x:Name="btnEdit" Style="{DynamicResource MaterialDesignOutlinedButton}"
+                    Content="Edit" Margin="0 0 20 0"
+                    Foreground="White" BorderBrush="White" />
+                <Button x:Name="btnDelete" Style="{DynamicResource MaterialDesignOutlinedButton}"
+                    Content="Delete" Margin="0 0 20 0"
+                    Foreground="White" BorderBrush="White"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

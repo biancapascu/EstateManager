@@ -30,7 +30,7 @@ namespace EstateManager
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\AplicatieLicenta\\EstateManager\\Database.mdf;Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection("data source=(LocalDB)\\MSSQLLocalDB;attachdbfilename=C:\\Users\\bianca\\Desktop\\AplicatieLicenta\\EstateManager\\Database.mdf;integrated security=True");
             try
             {
                 if (sqlCon.State == ConnectionState.Closed)
