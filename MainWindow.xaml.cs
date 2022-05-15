@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace EstateManager
 {
@@ -20,9 +8,24 @@ namespace EstateManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        string username;
+        public MainWindow(string username)
         {
             InitializeComponent();
+
+            this.username = username;
+
+            bool isAdmin = username == "admin" ? true : false;
+
+            if (!isAdmin)
+            {
+                CatalogButton.Visibility = Visibility.Collapsed;
+                RecordsButton.Visibility = Visibility.Collapsed;
+                AccomodationButton.Visibility = Visibility.Collapsed;
+                HistoryButton.Visibility = Visibility.Collapsed;
+                UsersButton.Visibility = Visibility.Collapsed;
+            }
+
             Application.Current.MainWindow = this;
         }
         private void Minimize(object sender, MouseButtonEventArgs e)

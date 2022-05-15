@@ -5,7 +5,7 @@
              xmlns:viewModel="clr-namespace:EstateManager.MVVM.ViewModel"
              xmlns:view="clr-namespace:EstateManager.MVVM.View"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Login.xaml">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="Theme/TextBlockTheme.xaml"/>
                 <ResourceDictionary Source="Theme/LabelTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ProtectedButtonTheme.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
@@ -30,6 +31,27 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:ReserveViewModel}">
                 <view:ReserveView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:UsersViewModel}">
+                <view:UsersView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:CheckoutViewModel}">
+                <view:CheckoutView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:RecordsViewModel}">
+                <view:RecordsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
+                <view:CatalogView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:HistoryViewModel}">
+                <view:HistoryView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AccomodationViewModel}">
+                <view:AccomodationView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ExtrasViewModel}">
+                <view:ExtrasView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

@@ -1,18 +1,7 @@
 ﻿using DatabaseModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.Entity;
 using System.Data;
 
@@ -25,21 +14,29 @@ namespace EstateManager.MVVM.View
     {
         DatabaseEntitiesModel ctx = new DatabaseEntitiesModel();
         CollectionViewSource recordsVSource;
+        CollectionViewSource accomodationVSource;
+        Records record = null;
         public CheckinView()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            recordsVSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("recordsViewSource")));
+            recordsVSource = (CollectionViewSource)this.FindResource("recordsViewSource");
             recordsVSource.Source = ctx.Records.Local;
             ctx.Records.Load();
+            accomodationVSource = (CollectionViewSource)this.FindResource("accomodationViewSource");
+            accomodationVSource.Source = ctx.Accomodation.Local;
+            ctx.Accomodation.Load();
+            accomodationTextBox.ItemsSource = ctx.Accomodation.Local;
+            accomodationTextBox.DisplayMemberPath = "Name";
+            accomodationTextBox.SelectedValuePath = "Name";
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Records record = null;
             try
             {
                 record = new Records()
@@ -51,7 +48,7 @@ namespace EstateManager.MVVM.View
                     LastName = lastNameTextBox.Text.Trim(),
                     Phone = phoneTextBox.Text.Trim(),
                     Email = emailTextBox.Text.Trim(),
-                    Adress = adressTextBox.Text.Trim(),
+                    Address = addressTextBox.Text.Trim(),
                     CNP = cNPTextBox.Text.Trim(),
                     Series = seriesTextBox.Text.Trim(),
                     Number = numberTextBox.Text.Trim()
@@ -59,10 +56,15 @@ namespace EstateManager.MVVM.View
                 ctx.Records.Add(record);
                 recordsVSource.View.Refresh();
                 ctx.SaveChanges();
+                new CustomMessageBox("Record added successfully!", MessageType.Confirmation, MessageButtons.Ok).ShowDialog();
             }
             catch (DataException ex)
             {
-                new CustomMessageBox(ex.Message, MessageType.Error, MessageButtons.Ok);
+                new CustomMessageBox(ex.Message, MessageType.Error, MessageButtons.Ok).ShowDialog();
+            }
+            finally
+            {
+                record = null;
             }
         }
 

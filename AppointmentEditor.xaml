@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel"
         xmlns:local="clr-namespace:EstateManager" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="Reservation" Height="500" Width="500">
+        Title="Reservation" Height="500" Width="500"  WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <CollectionViewSource x:Key="accomodationViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Accomodation}, CreateList=True}"/>
+    </Window.Resources>
     <Grid>
         <Grid Margin="5">
             <Grid.RowDefinitions>
@@ -35,11 +39,9 @@
             <StackPanel Grid.Row="0" Margin="5" Grid.Column="2" Grid.ColumnSpan="2" Orientation="Vertical">
                 <Label x:Name="LocationLabel" 
                Content="Location" />
-                <TextBox x:Name="location" 
-                 HorizontalAlignment="Stretch" 
-                 VerticalAlignment="Stretch"
-                     Height="25"
-                 />
+                <ComboBox x:Name="location" HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" Height="25">
+                </ComboBox>
             </StackPanel>
             <StackPanel Grid.Row="1" Margin="5" Grid.ColumnSpan="2" Orientation="Vertical">
                 <Label x:Name="StartLabel"  Content="Start Time" />
@@ -107,7 +109,7 @@
                         <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="Save" Height="30" Grid.Column="0" Content="Save" Click="Save_Click"/>
+                    <Button x:Name="Save" Height="30" Grid.Column="0" Content="Save" Click="Save_Click" VerticalAlignment="Top"/>
                     <GridSplitter Grid.Column="1" IsEnabled="False"/>
                     <Button x:Name="Delete" Height="30" Grid.Column="2" Content="Delete" Click="Delete_Click" />
                     <GridSplitter Grid.Column="3" IsEnabled="False"/>

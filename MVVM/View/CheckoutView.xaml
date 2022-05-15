@@ -9,22 +9,72 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="940" Loaded="UserControl_Loaded">
     <UserControl.Resources>
+        <CollectionViewSource x:Key="companyViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Company}, CreateList=True}"/>
         <CollectionViewSource x:Key="recordsViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Records}, CreateList=True}"/>
     </UserControl.Resources>
+
     <Grid DataContext="{StaticResource recordsViewSource}">
-        <Border CornerRadius="50">
+        <Border CornerRadius="0 50 50 0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="#3E3A65" Offset="0"/>
                     <GradientStop Color="#473765" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-        </Border>
-        <TextBlock Text="Check-out" 
+
+            <TextBlock Text="Check-out"
                    Foreground="White"
                    FontSize="28"
                    HorizontalAlignment="Center"
-                   FontFamily="/Fonts/#Poppins"/>
-        <Border Margin="50 100 50 50" Style="{StaticResource border}"/>
+                   FontFamily="/Fonts/#Poppins">
+            </TextBlock>
+        </Border>
+        <DataGrid x:Name="companyDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource companyViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,313,10,82">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="accountColumn" Binding="{Binding Account}" Header="Account" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="addressColumn" Binding="{Binding Address}" Header="Address" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="bankColumn" Binding="{Binding Bank}" Header="Bank" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="cityColumn" Binding="{Binding City}" Header="City" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="phoneColumn" Binding="{Binding Phone}" Header="Phone" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="postcodeColumn" Binding="{Binding Postcode}" Header="Postcode" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="registrationColumn" Binding="{Binding Registration}" Header="Registration" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="swiftColumn" Binding="{Binding Swift}" Header="Swift" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="townColumn" Binding="{Binding Town}" Header="Town" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="websiteColumn" Binding="{Binding Website}" Header="Website" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="recordsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,71,10,292">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="accomodationColumn" Binding="{Binding Accomodation}" Header="Accomodation" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="addressColumn1" Binding="{Binding Address}" Header="Address" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="cNPColumn" Binding="{Binding CNP}" Header="CNP" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="emailColumn1" Binding="{Binding Email}" Header="Email" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="endTimeColumn" Header="End Time" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding EndTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="idRecordColumn" Binding="{Binding IdRecord}" Header="Id Record" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="numberColumn" Binding="{Binding Number}" Header="Number" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="phoneColumn1" Binding="{Binding Phone}" Header="Phone" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="seriesColumn" Binding="{Binding Series}" Header="Series" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="startTimeColumn" Header="Start Time" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding StartTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnPreview" Style="{DynamicResource MaterialDesignOutlinedButton}"
+                    Content="Preview" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20"
+                    Foreground="White" BorderBrush="White" Click="btnPreview_Click"/>
     </Grid>
 </UserControl>

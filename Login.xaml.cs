@@ -1,20 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Data;
-using DatabaseModel;
 
 namespace EstateManager
 {
@@ -41,9 +28,12 @@ namespace EstateManager
                 sqlCmd.Parameters.AddWithValue("@Username", txtUsername.Text);
                 sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Password);
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
-                if(count == 1)
+                if (count == 1)
                 {
-                    MainWindow dashboard = new MainWindow();
+                    String queryAdd = "INSERT INTO History (Username,DateTime) VALUES('" + txtUsername.Text + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                    SqlCommand sqlCmdAdd = new SqlCommand(queryAdd, sqlCon);
+                    sqlCmdAdd.ExecuteNonQuery();
+                    MainWindow dashboard = new MainWindow(txtUsername.Text);
                     dashboard.Show();
                     this.Close();
                 }
@@ -53,7 +43,7 @@ namespace EstateManager
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 new CustomMessageBox(ex.Message, MessageType.Warning, MessageButtons.Ok).ShowDialog();
             }
@@ -61,6 +51,11 @@ namespace EstateManager
             {
                 sqlCon.Close();
             }
+        }
+
+        private void Btn_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

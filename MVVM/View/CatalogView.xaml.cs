@@ -8,14 +8,14 @@ using System.Windows.Data;
 namespace EstateManager.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for UsersView.xaml
+    /// Interaction logic for CatalogView.xaml
     /// </summary>
-    public partial class UsersView : UserControl
+    public partial class CatalogView : UserControl
     {
         DatabaseEntitiesModel ctx = new DatabaseEntitiesModel();
-        CollectionViewSource usersVSource;
-        Users user = null;
-        public UsersView()
+        CollectionViewSource catalogVSource;
+        Catalog catalog = null;
+        public CatalogView()
         {
             InitializeComponent();
             DataContext = this;
@@ -23,24 +23,24 @@ namespace EstateManager.MVVM.View
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            usersVSource = (CollectionViewSource)this.FindResource("usersViewSource");
-            usersVSource.Source = ctx.Users.Local;
-            ctx.Users.Load();
+            catalogVSource = (CollectionViewSource)this.FindResource("catalogViewSource");
+            catalogVSource.Source = ctx.Catalog.Local;
+            ctx.Catalog.Load();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                user = new Users()
+                catalog = new Catalog()
                 {
-                    Username = usernameTextBox.Text.Trim(),
-                    Password = passwordTextBox.Text.Trim()
+                    Name = nameTextBox.Text.Trim(),
+                    Price = int.Parse(priceTextBox.Text.Trim())
                 };
-                ctx.Users.Add(user);
-                usersVSource.View.Refresh();
+                ctx.Catalog.Add(catalog);
+                catalogVSource.View.Refresh();
                 ctx.SaveChanges();
-                new CustomMessageBox("User added successfully!", MessageType.Confirmation, MessageButtons.Ok).ShowDialog();
+                new CustomMessageBox("Item added successfully!", MessageType.Confirmation, MessageButtons.Ok).ShowDialog();
             }
             catch (DataException ex)
             {
@@ -48,7 +48,7 @@ namespace EstateManager.MVVM.View
             }
             finally
             {
-                user = null;
+                catalog = null;
             }
         }
 
@@ -56,23 +56,23 @@ namespace EstateManager.MVVM.View
         {
             try
             {
-                if (usersDataGrid.SelectedItem == null)
-                    new CustomMessageBox("Select an existing user to edit!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
+                if (catalogDataGrid.SelectedItem == null)
+                    new CustomMessageBox("Select an existing item to edit!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
                 else
                 {
-                    user = (Users)usersDataGrid.SelectedItem;
-                    user.Username = usernameTextBox.Text.Trim();
-                    user.Password = passwordTextBox.Text.Trim();
+                    catalog = (Catalog)catalogDataGrid.SelectedItem;
+                    catalog.Name = nameTextBox.Text.Trim();
+                    catalog.Price = int.Parse(priceTextBox.Text.Trim());
                     ctx.SaveChanges();
                 }
             }
             catch (DataException ex)
             {
-                new CustomMessageBox(ex.Message, MessageType.Error, MessageButtons.Ok).ShowDialog();
+                new CustomMessageBox(ex.Message, MessageType.Error, MessageButtons.Ok);
             }
             finally
             {
-                user = null;
+                catalog = null;
             }
         }
 
@@ -80,12 +80,12 @@ namespace EstateManager.MVVM.View
         {
             try
             {
-                if (usersDataGrid.SelectedItem == null)
-                    new CustomMessageBox("Select an existing user to delete!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
+                if (catalogDataGrid.SelectedItem == null)
+                    new CustomMessageBox("Select an existing item to delete!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
                 else
                 {
-                    user = (Users)usersDataGrid.SelectedItem;
-                    ctx.Users.Remove(user);
+                    catalog = (Catalog)catalogDataGrid.SelectedItem;
+                    ctx.Catalog.Remove(catalog);
                     ctx.SaveChanges();
                 }
             }
@@ -95,7 +95,7 @@ namespace EstateManager.MVVM.View
             }
             finally
             {
-                user = null;
+                catalog = null;
             }
         }
     }

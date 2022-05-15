@@ -46,7 +46,7 @@ namespace WpfScheduler
             }
             catch
             {
-                // Handle exceptions
+                new CustomMessageBox("Could not connect to database.", MessageType.Error, MessageButtons.Ok).ShowDialog();
             }
         }
         public ScheduleAppointmentCollection ScheduleAppointmentCollection

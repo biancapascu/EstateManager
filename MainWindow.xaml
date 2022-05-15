@@ -8,7 +8,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="EstateManager.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1180" ResizeMode="CanResize"
+        Title="MainWindow" Height="700" Width="1180" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" AllowsTransparency="True"
         Background="Transparent" WindowStyle="None">
 
@@ -64,7 +64,7 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button Style="{StaticResource menuButton}">
+                <Button x:Name="RecordsButton" Style="{StaticResource menuButton}" Command="{Binding RecordsViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
@@ -100,7 +100,7 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton}" Command="{Binding CheckoutViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
@@ -112,7 +112,31 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton}" Command="{Binding ExtrasViewCommand}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left">
+                            <fa:ImageAwesome Icon="PlusCircle" Style="{StaticResource buttonIcon}"/>
+                            <TextBlock Text="Extras" Style="{StaticResource buttonText}"/>
+                        </StackPanel>
+                        <fa:ImageAwesome Icon="AngleRight" 
+                                         HorizontalAlignment="Right"
+                                         Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+                <Button x:Name="AccomodationButton" Style="{StaticResource menuButton}" Command="{Binding AccomodationViewCommand}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left">
+                            <fa:ImageAwesome Icon="Bed" Style="{StaticResource buttonIcon}"/>
+                            <TextBlock Text="Accomodation" Style="{StaticResource buttonText}"/>
+                        </StackPanel>
+                        <fa:ImageAwesome Icon="AngleRight" 
+                                         HorizontalAlignment="Right"
+                                         Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+                <Button x:Name="CatalogButton" Style="{StaticResource menuButton}" Command="{Binding CatalogViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
@@ -124,7 +148,7 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button Style="{StaticResource menuButton}">
+                <Button x:Name="HistoryButton" Style="{StaticResource menuButton}" Command="{Binding HistoryViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
@@ -136,7 +160,7 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button Style="{StaticResource menuButton}">
+                <Button x:Name="UsersButton" Style="{StaticResource menuButton}" Command="{Binding UsersViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
@@ -149,18 +173,6 @@
                     </Grid>
                 </Button>
                 <Rectangle Height="0.5" Fill="#e0e0e0" Margin="50 15 60 15"/>
-                <Button Style="{StaticResource menuButton}">
-                    <Grid>
-                        <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Left">
-                            <fa:ImageAwesome Icon="Sliders" Style="{StaticResource buttonIcon}"/>
-                            <TextBlock Text="Preferences" Style="{StaticResource buttonText}"/>
-                        </StackPanel>
-                        <fa:ImageAwesome Icon="AngleRight" 
-                                         HorizontalAlignment="Right"
-                                         Style="{StaticResource buttonIconExpanded}"/>
-                    </Grid>
-                </Button>
                 <Button Style="{StaticResource menuButton}" Click="Logout_Click">
                     <Grid>
                         <StackPanel Orientation="Horizontal"

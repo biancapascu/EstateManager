@@ -6,15 +6,16 @@
              xmlns:local="clr-namespace:EstateManager.MVVM.View"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel" x:Class="EstateManager.MVVM.View.CheckinView" 
-             mc:Ignorable="d" 
-             d:DesignHeight="540" d:DesignWidth="900" Background="Transparent" Loaded="UserControl_Loaded">
+             xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel"
+             x:Class="EstateManager.MVVM.View.CheckinView" 
+             mc:Ignorable="d" d:DesignHeight="540" d:DesignWidth="900" Background="Transparent" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <CollectionViewSource x:Key="recordsViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Records}, CreateList=True}"/>
+        <CollectionViewSource x:Key="accomodationViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Accomodation}, CreateList=True}"/>
     </UserControl.Resources>
     <Grid>
         <!--Background-->
-        <Border>
+        <Border CornerRadius="0 50 50 0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="#3E3A65" Offset="0"/>
@@ -51,8 +52,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Label Content="Adress:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
-                    <TextBox x:Name="adressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding Adress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                    <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
 
                     <Label Content="CNP:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
                     <TextBox x:Name="cNPTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding CNP, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
@@ -67,7 +68,7 @@
                     <TextBox x:Name="firstNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
 
                     <Label Content="Accomodation:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-                    <TextBox x:Name="accomodationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Accomodation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <ComboBox x:Name="accomodationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Accomodation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
 
                     <Label Content="Id Record:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
                     <TextBox x:Name="idRecordTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding IdRecord, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="False"/>
@@ -90,10 +91,10 @@
             </Border>
         </Border>
         <Border Margin="50,70,470,30" Style="{StaticResource border}">
-            <materialDesign:PackIcon Kind="BadgeAccount" 
-                                                 Width="90" Height="90" 
+            <materialDesign:PackIcon Kind="CardAccountDetails" 
+                                                 Width="118" Height="90" 
                                                  Foreground="White"
-                                                 HorizontalAlignment="Center" Margin="145,100,145,0" />
+                                                 HorizontalAlignment="Center" Margin="130,100,130,0" />
         </Border>
         <Grid Margin="50,284,441,51">
             <TextBlock Text="Check-in your clients"
