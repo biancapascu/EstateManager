@@ -26,11 +26,11 @@
                    HorizontalAlignment="Center"
                    FontFamily="/Fonts/#Poppins"/>
         <Border Margin="50,70,50,30" Style="{StaticResource border}">
-            <DataGrid x:Name="accomodationDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="450 50 50 50" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid x:Name="accomodationDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="390,50,30,50" RowDetailsVisibilityMode="VisibleWhenSelected">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="100"/>
-                    <DataGridTextColumn x:Name="typeColumn" Binding="{Binding Type}" Header="Type" Width="100"/>
-                    <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="Price" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="120"/>
+                    <DataGridTextColumn x:Name="typeColumn" Binding="{Binding Type}" Header="Type" Width="120"/>
+                    <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="Price" Width="120"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>

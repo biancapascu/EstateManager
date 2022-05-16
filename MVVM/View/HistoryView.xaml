@@ -30,7 +30,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="idHistoryColumn" Binding="{Binding IdHistory}" Header="Id History" Width="SizeToHeader"/>
                     <DataGridTextColumn x:Name="usernameColumn" Binding="{Binding Username}" Header="Username" Width="SizeToHeader"/>
-                    <DataGridTemplateColumn x:Name="dateTimeColumn" Header="Date Time" Width="SizeToHeader">
+                    <DataGridTemplateColumn x:Name="dateTimeColumn" Header="Date Time" Width="120">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <DatePicker SelectedDate="{Binding DateTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>

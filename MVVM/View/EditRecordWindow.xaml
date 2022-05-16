@@ -9,7 +9,6 @@
         Title="Edit Record" Height="500" Width="500" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="recordsViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Records}, CreateList=True}"/>
-        <CollectionViewSource x:Key="accomodationViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Accomodation}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
 

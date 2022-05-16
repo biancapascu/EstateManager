@@ -8,8 +8,8 @@
              mc:Ignorable="d" d:DesignHeight="540" d:DesignWidth="900" Background="Transparent" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <CollectionViewSource x:Key="extrasViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Extras}, CreateList=True}"/>
-        <CollectionViewSource x:Key="recordsViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Extras}, CreateList=True}"/>
-        <CollectionViewSource x:Key="catalogViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Extras}, CreateList=True}"/>
+        <CollectionViewSource x:Key="recordsViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Records}, CreateList=True}"/>
+        <CollectionViewSource x:Key="catalogViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Catalog}, CreateList=True}"/>
     </UserControl.Resources>
     <Grid DataContext="{StaticResource extrasViewSource}">
         <!--Background-->
@@ -51,26 +51,6 @@
                        FontFamily="/Fonts/#Poppins"
                        Foreground="White"
                        FontSize="16"/>
-            <Grid x:Name="grid1" VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{StaticResource extrasViewSource}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Label VerticalAlignment="Center" FontWeight="SemiBold" Foreground="White" BorderBrush="White" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Id Extra:"/>
-                <TextBox x:Name="idExtraTextBox" Foreground="White" BorderBrush="White" Width="120" VerticalAlignment="Center" Text="{Binding IdExtra, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="False"/>
-                <Label VerticalAlignment="Center" FontWeight="SemiBold" Foreground="White" BorderBrush="White" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Id Record:"/>
-                <ComboBox x:Name="idRecordTextBox" Foreground="White" BorderBrush="White" Width="120" VerticalAlignment="Center" Text="{Binding IdRecord, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-                <Label VerticalAlignment="Center" FontWeight="SemiBold" Foreground="White" BorderBrush="White" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Name:"/>
-                <ComboBox x:Name="nameTextBox" Foreground="White" BorderBrush="White" Width="120" VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-                <Label VerticalAlignment="Center" FontWeight="SemiBold" Foreground="White" BorderBrush="White" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Quantity:"/>
-                <TextBox x:Name="quantityTextBox" Foreground="White" BorderBrush="White" Width="120" VerticalAlignment="Center" Text="{Binding Quantity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            </Grid>
             <StackPanel Orientation="Horizontal" Width="399" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="132">
                 <Button x:Name="btnAdd" Style="{DynamicResource MaterialDesignOutlinedButton}"
                     Content="Add" Margin="80 100 20 0"
@@ -82,6 +62,26 @@
                     Content="Delete" Margin="0 100 20 0"
                     Foreground="White" BorderBrush="White" Click="btnDelete_Click"/>
             </StackPanel>
+            <Grid x:Name="grid1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Id Extra:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" Foreground="White" BorderBrush="White" FontWeight="SemiBold"/>
+                <TextBox x:Name="idExtraTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Foreground="#6050dc" BorderBrush="White" Text="{Binding IdExtra, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="False"/>
+                <Label Content="Id Record:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" Foreground="White" BorderBrush="White" FontWeight="SemiBold"/>
+                <ComboBox x:Name="idRecordTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" BorderBrush="White" Foreground="#6050dc" Text="{Binding IdRecord, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" Foreground="White" BorderBrush="White" FontWeight="SemiBold"/>
+                <ComboBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" BorderBrush="White" Foreground="#6050dc" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Quantity:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" Foreground="White" BorderBrush="White" FontWeight="SemiBold"/>
+                <TextBox x:Name="quantityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" BorderBrush="White" Foreground="#6050dc" Text="{Binding Quantity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>
