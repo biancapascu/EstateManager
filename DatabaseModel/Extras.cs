@@ -6,16 +6,21 @@ namespace DatabaseModel
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("History")]
-    public partial class History
+    public partial class Extras
     {
         [Key]
-        public int IdHistory { get; set; }
+        public int IdExtra { get; set; }
+
+        public int IdRecord { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string Username { get; set; }
+        public string Name { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public int Quantity { get; set; }
+
+        public virtual Catalog Catalog { get; set; }
+
+        public virtual Records Records { get; set; }
     }
 }

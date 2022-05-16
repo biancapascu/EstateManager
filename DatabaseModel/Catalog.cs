@@ -9,10 +9,19 @@ namespace DatabaseModel
     [Table("Catalog")]
     public partial class Catalog
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Catalog()
+        {
+            Extras = new HashSet<Extras>();
+        }
+
         [Key]
         [StringLength(50)]
         public string Name { get; set; }
 
         public int Price { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Extras> Extras { get; set; }
     }
 }

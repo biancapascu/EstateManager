@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26E21F16-A200-4B5F-B017-C92F512567BC}</ProjectGuid>
+    <ProjectGuid>{D0032EB2-2AA0-440B-A7BF-20E5BF5E9CCC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DatabaseModel</RootNamespace>
@@ -52,8 +52,11 @@
   <ItemGroup>
     <Compile Include="Accomodation.cs" />
     <Compile Include="Catalog.cs" />
+    <Compile Include="Company.cs" />
     <Compile Include="DatabaseEntitiesModel.cs" />
+    <Compile Include="Extras.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="Invoices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Records.cs" />
     <Compile Include="Reservations.cs" />
