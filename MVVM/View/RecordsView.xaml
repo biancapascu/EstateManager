@@ -49,8 +49,8 @@
             </DataGrid>
         </Border>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-        <Button x:Name="DeleteButton" Margin="0 0 20 20" Style="{DynamicResource MaterialDesignOutlinedButton}" Foreground="White" BorderBrush="White" VerticalAlignment="Bottom"  Width="120" Content="Delete" Click="DeleteButton_Click"/>
-            <Button x:Name="EditButton" Margin="0 0 0 20" Style="{DynamicResource MaterialDesignOutlinedButton}" Foreground="White" BorderBrush="White" VerticalAlignment="Bottom"  Width="120" Content="Edit" Click="EditButton_Click"/>
+            <Button x:Name="EditButton" Margin="0 0 0 20" Style="{DynamicResource MaterialDesignOutlinedButton}" Foreground="White" BorderBrush="White" VerticalAlignment="Bottom"  Width="100" Content="Edit" Click="EditButton_Click"/>
+            <Button x:Name="DeleteButton" Margin="20 0 0 20" Style="{DynamicResource MaterialDesignOutlinedButton}" Foreground="White" BorderBrush="White" VerticalAlignment="Bottom"  Width="100" Content="Delete" Click="DeleteButton_Click"/>
         </StackPanel>
             <TextBlock Text="Records" 
                    Foreground="White"

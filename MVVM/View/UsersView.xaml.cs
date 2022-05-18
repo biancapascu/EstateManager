@@ -98,5 +98,11 @@ namespace EstateManager.MVVM.View
                 user = null;
             }
         }
+
+        private void HistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserHistoryWindow userHistory = new UserHistoryWindow();
+            userHistory.Show();
+        }
     }
 }

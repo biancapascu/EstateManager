@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EstateManager.MVVM.ViewModel
 {
-    class HistoryViewModel
+    class CompanyViewModel
     {
     }
 }

@@ -124,9 +124,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MVVM\ViewModel\AccomodationViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\CompanyViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ExtrasViewModel.cs" />
     <Compile Include="MVVM\View\AccomodationView.xaml.cs">
       <DependentUpon>AccomodationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\CompanyView.xaml.cs">
+      <DependentUpon>CompanyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\EditCompanyWindow.xaml.cs">
+      <DependentUpon>EditCompanyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\EditRecordWindow.xaml.cs">
       <DependentUpon>EditRecordWindow.xaml</DependentUpon>
@@ -194,15 +201,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\CompanyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\EditCompanyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\EditRecordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\ExtrasView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\HistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\ReserveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\UserHistoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -259,7 +274,6 @@
     <Compile Include="MVVM\ViewModel\CatalogViewModel.cs" />
     <Compile Include="MVVM\ViewModel\CheckinViewModel.cs" />
     <Compile Include="MVVM\ViewModel\CheckoutViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\HistoryViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\RecordsViewModel.cs" />
@@ -275,9 +289,6 @@
     <Compile Include="MVVM\View\CheckoutView.xaml.cs">
       <DependentUpon>CheckoutView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\HistoryView.xaml.cs">
-      <DependentUpon>HistoryView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MVVM\View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
@@ -286,6 +297,9 @@
     </Compile>
     <Compile Include="MVVM\View\ReserveView.xaml.cs">
       <DependentUpon>ReserveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\UserHistoryWindow.xaml.cs">
+      <DependentUpon>UserHistoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
@@ -308,6 +322,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\Poppins-Regular.ttf" />
+    <Resource Include="Fonts\DancingScript.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DatabaseModel.Accomodation.datasource" />
     <None Include="Properties\DataSources\DatabaseModel.Catalog.datasource" />
@@ -334,6 +349,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Resource Include="Images\bk6.png" />
+    <Resource Include="Images\bk5.png" />
+    <Resource Include="Images\bk4.png" />
+    <Resource Include="Images\bk3.png" />
+    <Resource Include="Images\bk2.png" />
+    <Resource Include="Images\bk1.png" />
     <Resource Include="Images\companylogo.png" />
     <Resource Include="Images\notebook.png" />
     <Resource Include="Images\login.png" />

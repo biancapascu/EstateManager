@@ -12,7 +12,7 @@ namespace EstateManager.MVVM.ViewModel
         public RelayCommand UsersViewCommand { get; set; }
         public RelayCommand RecordsViewCommand { get; set; }
         public RelayCommand CatalogViewCommand { get; set; }
-        public RelayCommand HistoryViewCommand { get; set; }
+        public RelayCommand CompanyViewCommand { get; set; }
         public RelayCommand AccomodationViewCommand { get; set; }
         public RelayCommand ExtrasViewCommand { get; set; }
 
@@ -23,7 +23,7 @@ namespace EstateManager.MVVM.ViewModel
         public UsersViewModel UsersVM { get; set; }
         public RecordsViewModel RecordsVM { get; set; }
         public CatalogViewModel CatalogVM { get; set; }
-        public HistoryViewModel HistoryVM { get; set; }
+        public CompanyViewModel CompanyVM { get; set; }
         public AccomodationViewModel AccomodationVM { get; set; }
         public ExtrasViewModel ExtrasVM { get; set; }
 
@@ -49,7 +49,7 @@ namespace EstateManager.MVVM.ViewModel
             UsersVM = new UsersViewModel();
             RecordsVM = new RecordsViewModel();
             CatalogVM = new CatalogViewModel();
-            HistoryVM = new HistoryViewModel();
+            CompanyVM = new CompanyViewModel();
             AccomodationVM = new AccomodationViewModel();
             ExtrasVM = new ExtrasViewModel();
 
@@ -83,9 +83,9 @@ namespace EstateManager.MVVM.ViewModel
             {
                 CurrentView = CatalogVM;
             }));
-            HistoryViewCommand = new RelayCommand((o =>
+            CompanyViewCommand = new RelayCommand((o =>
             {
-                CurrentView = HistoryVM;
+                CurrentView = CompanyVM;
             }));
             AccomodationViewCommand = new RelayCommand((o =>
             {

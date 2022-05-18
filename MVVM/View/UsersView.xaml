@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EstateManager.MVVM.View"
              xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="540" d:DesignWidth="900" Loaded="UserControl_Loaded">
     <UserControl.Resources>
@@ -27,7 +27,7 @@
                    HorizontalAlignment="Center"
                    FontFamily="/Fonts/#Poppins"/>
         <Border Margin="50,70,50,30" Style="{StaticResource border}">
-            <DataGrid x:Name="usersDataGrid" Margin="0,0.4,29.6,-0.4" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" ColumnHeaderHeight="50" Height="420" Width="301">
+            <DataGrid x:Name="usersDataGrid" Margin="0,20,30,0" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" ColumnHeaderHeight="50" Height="342" Width="301">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="usernameColumn" Binding="{Binding Username}" Header="Username" Width="150"/>
                     <DataGridTextColumn x:Name="passwordColumn"  Binding="{Binding Password}" Header="Password" Width="150"/>
@@ -39,6 +39,18 @@
                 </DataGrid.RowStyle>
             </DataGrid>
         </Border>
+        <Button x:Name="HistoryButton" Style="{StaticResource menuButton}" Margin="0,461,133,32" Click="HistoryButton_Click">
+            <Grid>
+                <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left">
+                    <fa:ImageAwesome Icon="History" Style="{StaticResource buttonIcon}"/>
+                    <TextBlock Text="Click to see user history" FontWeight="SemiBold" Style="{StaticResource buttonText}"/>
+                </StackPanel>
+                <fa:ImageAwesome Icon="AngleRight" 
+                                         HorizontalAlignment="Right"
+                                         Style="{StaticResource buttonIconExpanded}"/>
+            </Grid>
+        </Button>
         <Border Margin="50,70,470,30" Style="{StaticResource border}">
             <materialDesign:PackIcon Kind="AccountCircle" 
                                                  Width="90" Height="90" 

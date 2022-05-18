@@ -12,7 +12,7 @@
     </Window.Resources>
     <Grid>
 
-        <Grid x:Name="grid1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 50" DataContext="{StaticResource recordsViewSource}">
+        <Grid x:Name="grid1" Margin="0 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Center" DataContext="{StaticResource recordsViewSource}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -57,8 +57,8 @@
             <DatePicker x:Name="startTimeDatePicker" VerticalAlignment="Center" SelectedDate="{Binding StartTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-        <Button Width="120" Content="Save" Margin="0 0 20 20" Click="Button_Save"/>
-            <Button Width="120" Content="Cancel" Margin="0 0 20 20" Click="Button_Cancel"/>
+        <Button Width="100" Content="Save" Margin="0 0 20 20" Click="Button_Save"/>
+        <Button Width="100" Content="Cancel" Margin="0 0 20 20" Click="Button_Cancel"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,0 +1,60 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EstateManager.MVVM.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel" x:Class="EstateManager.MVVM.View.CompanyView"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="900" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="companyViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:Company}, CreateList=True}"/>
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource companyViewSource}">
+        <Border CornerRadius="0 50 50 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#3E3A65" Offset="0"/>
+                    <GradientStop Color="#473765" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <DataGrid x:Name="companyDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,0,10,268" Width="880" Height="220">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="nameColumn" Width="150" Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn x:Name="addressColumn" Width="200" Header="Address" Binding="{Binding Address}"/>
+                    <DataGridTextColumn x:Name="townColumn" Width="120" Header="Town" Binding="{Binding Town}"/>
+                    <DataGridTextColumn x:Name="cityColumn" Width="100" Header="City" Binding="{Binding City}"/>
+                    <DataGridTextColumn x:Name="postcodeColumn" Width="SizeToHeader" Header="Postcode" Binding="{Binding Postcode}"/>
+                    <DataGridTextColumn x:Name="emailColumn" Width="200" Header="Email" Binding="{Binding Email}"/>
+                    <DataGridTextColumn x:Name="phoneColumn" Width="120" Header="Phone" Binding="{Binding Phone}"/>
+                    <DataGridTextColumn x:Name="websiteColumn" Width="170" Header="Website" Binding="{Binding Website}"/>
+                    <DataGridTextColumn x:Name="bankColumn" Width="150" Header="Bank" Binding="{Binding Bank}"/>
+                    <DataGridTextColumn x:Name="swiftColumn" Width="120" Header="Swift" Binding="{Binding Swift}"/>
+                    <DataGridTextColumn x:Name="accountColumn" Width="150" Header="Account" Binding="{Binding Account}"/>
+                    <DataGridTextColumn x:Name="registrationColumn" Width="150" Header="Registration" Binding="{Binding Registration}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Border Margin="25,425,25,25" Style="{StaticResource border}">
+            <materialDesign:PackIcon Kind="BriefcaseEdit" 
+                                                 Width="80" Height="80" 
+                                                 Foreground="White" Margin="30 0 0 0"
+                                                 VerticalAlignment="Center" HorizontalAlignment="Left" />
+        </Border>
+        <TextBlock Text="Company" 
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Center"
+                   FontFamily="/Fonts/#Poppins"/>
+        <TextBlock Text="Manage your company information and choose to generate&#xA;invoices on behalf of a company or as an individual" 
+                   Foreground="White"
+                   FontSize="18"
+                   HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                   FontFamily="/Fonts/#Poppins" Margin="0,0,25,65" Width="704"/>
+        <StackPanel Orientation="Horizontal" Margin="0 150 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="AddButton" Margin="0 0 0 20" Style="{DynamicResource MaterialDesignOutlinedButton}" Foreground="White" BorderBrush="White" VerticalAlignment="Bottom"  Width="100" Content="Add" Click="AddButton_Click"/>
+            <Button x:Name="EditButton" Margin="20 0 0 20" Style="{DynamicResource MaterialDesignOutlinedButton}" Foreground="White" BorderBrush="White" VerticalAlignment="Bottom"  Width="100" Content="Edit" Click="EditButton_Click"/>
+            <Button x:Name="DeleteButton" Margin="20 0 0 20" Style="{DynamicResource MaterialDesignOutlinedButton}" Foreground="White" BorderBrush="White" VerticalAlignment="Bottom"  Width="100" Content="Delete" Click="DeleteButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

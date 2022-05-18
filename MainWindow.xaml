@@ -64,6 +64,18 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
+                <Button x:Name="CompanyButton" Style="{StaticResource menuButton}" Command="{Binding CompanyViewCommand}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left">
+                            <fa:ImageAwesome Icon="Edit" Style="{StaticResource buttonIcon}"/>
+                            <TextBlock Text="Company" Style="{StaticResource buttonText}"/>
+                        </StackPanel>
+                        <fa:ImageAwesome Icon="AngleRight" 
+                                         HorizontalAlignment="Right"
+                                         Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
                 <Button x:Name="RecordsButton" Style="{StaticResource menuButton}" Command="{Binding RecordsViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
@@ -148,18 +160,6 @@
                                          Style="{StaticResource buttonIconExpanded}"/>
                     </Grid>
                 </Button>
-                <Button x:Name="HistoryButton" Style="{StaticResource menuButton}" Command="{Binding HistoryViewCommand}">
-                    <Grid>
-                        <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Left">
-                            <fa:ImageAwesome Icon="History" Style="{StaticResource buttonIcon}"/>
-                            <TextBlock Text="History" Style="{StaticResource buttonText}"/>
-                        </StackPanel>
-                        <fa:ImageAwesome Icon="AngleRight" 
-                                         HorizontalAlignment="Right"
-                                         Style="{StaticResource buttonIconExpanded}"/>
-                    </Grid>
-                </Button>
                 <Button x:Name="UsersButton" Style="{StaticResource menuButton}" Command="{Binding UsersViewCommand}">
                     <Grid>
                         <StackPanel Orientation="Horizontal"
@@ -209,6 +209,12 @@
                                      PreviewMouseLeftButtonDown="Close"/>
             </StackPanel>
         </Border>
+        <TextBlock x:Name="companyName" Text="Brilliant Rentals" Grid.Column="1" Grid.Row="0"
+                   Foreground="White"
+                   FontSize="45"
+                   HorizontalAlignment="Center"
+                   FontFamily="/Fonts/#Dancing Script"
+                   Margin="0 30 0 0"/>
 
         <!--Content Area-->
         <Border Grid.Column="1" Grid.Row="1" CornerRadius="0 0 50 0">

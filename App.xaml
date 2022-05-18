@@ -44,8 +44,8 @@
             <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
                 <view:CatalogView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:HistoryViewModel}">
-                <view:HistoryView/>
+            <DataTemplate DataType="{x:Type viewModel:CompanyViewModel}">
+                <view:CompanyView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:AccomodationViewModel}">
                 <view:AccomodationView/>

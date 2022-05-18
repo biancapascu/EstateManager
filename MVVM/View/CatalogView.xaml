@@ -27,7 +27,7 @@
                    FontFamily="/Fonts/#Poppins"/>
         <Border Margin="50,70,50,30" Style="{StaticResource border}">
 
-            <DataGrid x:Name="catalogDataGrid" Margin="0,19.4,29.6,0" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" ColumnHeaderHeight="50" Height="379">
+            <DataGrid x:Name="catalogDataGrid" Margin="0,20,30,0" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" ColumnHeaderHeight="50" Height="380">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="nameColumn" Width="150" Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn x:Name="priceColumn" Width="150" Header="Price" Binding="{Binding Price}"/>

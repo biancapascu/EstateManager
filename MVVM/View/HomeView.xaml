@@ -7,30 +7,52 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="940" Background="Transparent">
     <Grid>
-        <Border CornerRadius="0 50 50 0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#3E3A65" Offset="0"/>
-                    <GradientStop Color="#473765" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
-        <TextBlock Text="Dashboard" 
-                   Foreground="White"
-                   FontSize="28"
-                   HorizontalAlignment="Center"
-                   FontFamily="/Fonts/#Poppins"/>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 30 0">
-            <!--Chart Section-->
-            <StackPanel Margin="0 50 0 0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bk6.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <materialDesign:MaterialDateDisplay Foreground="White"
+                                                    FontFamily="/Fonts/#Poppins"
+                                                    Margin="100 90 0 0"/>
+
+        <TextBlock Text="Welcome back&#xA;user!"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Margin="100 170 0 0"
+                                   FontFamily="/Fonts/#Poppins"/>
+        <lvc:CartesianChart LegendLocation="None" Width="400" Margin="471,381,69,10">
+            <lvc:CartesianChart.DataTooltip>
+                <lvc:DefaultTooltip Background="#34226a" Foreground="#d5e2ff"/>
+            </lvc:CartesianChart.DataTooltip>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Spt,Oct,Nov,Dec">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator StrokeThickness="0" Step="1"/>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="0" MaxValue="100">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator StrokeThickness="0" Stroke="#2c3a54"/>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.Series>
+                <lvc:StackedColumnSeries Fill="#7155f9" MaxColumnWidth="15" Values="31,33,45,50,64,70,66,53,50,39,36,52"/>
+                <lvc:StackedColumnSeries Fill="#101a28" MaxColumnWidth="15" Values="100,100,100,100,100,100,100,100,100,100,100,100"/>
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 50 100 0">
+            <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical">
                     <Border Width="150"
                         Height="110"
                         CornerRadius="10"
-                        Margin="0 0 0 30">
+                        Margin="0 0 30 30">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Color="#3E3A65" Offset="1"/>
@@ -79,7 +101,7 @@
                     <Border Width="150"
                         Height="110"
                         CornerRadius="10"
-                        Margin="0 0 0 30">
+                        Margin="0 0 30 30">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Color="#3E3A65" Offset="1"/>
@@ -122,7 +144,8 @@
                             </StackPanel>
                         </Grid>
                     </Border>
-
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
                     <Border Width="150"
                         Height="110"
                         CornerRadius="10"
@@ -223,9 +246,7 @@
                         </Grid>
                     </Border>
                 </StackPanel>
-
             </StackPanel>
-            <!--End Action Section-->
         </StackPanel>
     </Grid>
 </UserControl>

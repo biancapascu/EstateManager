@@ -51,13 +51,11 @@ namespace EstateManager.MVVM.View
 
         private void Button_Cancel(object sender, RoutedEventArgs e)
         {
-            //Cancel button
             this.Close();
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            //Save button
             try
             {
                 Records editedRow = ctx.Records.First(record => record.IdRecord == selectedRow.IdRecord);

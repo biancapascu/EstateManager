@@ -58,23 +58,29 @@ namespace EstateManager
         private bool CheckDates(DateTime arrivalDate, DateTime departureDate, String desiredAccomodation)
         {
             ScheduleAppointmentCollection appointmentCollection = this.scheduler.ItemsSource as ScheduleAppointmentCollection;
+
+            if(appointmentCollection.Where(appointment => appointment.Location == desiredAccomodation).ToList() == null)
+            {
+                return true;
+            }
+
             List<ScheduleAppointment> appointmentList = appointmentCollection.Where(appointment => appointment.Location == desiredAccomodation).ToList();
 
             foreach (ScheduleAppointment appointment in appointmentCollection)
             {
-                if(appointment.StartTime <= arrivalDate && appointment.EndTime >= arrivalDate)
+                if (appointment.StartTime <= arrivalDate && appointment.EndTime >= arrivalDate)
                 {
                     return false;
                 }
-                if(appointment.StartTime <= departureDate && appointment.EndTime >= departureDate)
+                if (appointment.StartTime <= departureDate && appointment.EndTime >= departureDate)
                 {
                     return false;
                 }
-                if(appointment.StartTime <= arrivalDate && appointment.EndTime >= departureDate)
+                if (appointment.StartTime <= arrivalDate && appointment.EndTime >= departureDate)
                 {
                     return false;
                 }
-                if(appointment.StartTime >= arrivalDate && appointment.EndTime <= departureDate)
+                if (appointment.StartTime >= arrivalDate && appointment.EndTime <= departureDate)
                 {
                     return false;
                 }

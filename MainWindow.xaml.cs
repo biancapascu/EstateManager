@@ -22,7 +22,7 @@ namespace EstateManager
                 CatalogButton.Visibility = Visibility.Collapsed;
                 RecordsButton.Visibility = Visibility.Collapsed;
                 AccomodationButton.Visibility = Visibility.Collapsed;
-                HistoryButton.Visibility = Visibility.Collapsed;
+                CompanyButton.Visibility = Visibility.Collapsed;
                 UsersButton.Visibility = Visibility.Collapsed;
             }
 
