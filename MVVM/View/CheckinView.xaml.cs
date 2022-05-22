@@ -4,6 +4,9 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Data.Entity;
 using System.Data;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace EstateManager.MVVM.View
 {
@@ -37,6 +40,8 @@ namespace EstateManager.MVVM.View
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if(Validate(grid1))
+            { 
             try
             {
                 record = new Records()
@@ -66,11 +71,56 @@ namespace EstateManager.MVVM.View
             {
                 record = null;
             }
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             grid1.DataContext = "";
+        }
+
+        private bool Validate(object sender)
+        {
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            List<TextBox> gridlist = new List<TextBox>();
+            foreach(TextBox tb in gridlist)
+            {
+                if(tb.Name != idRecordTextBox.Name)
+                {
+                    gridlist.Add(tb);
+                }
+            }
+            if (gridlist.Any(tb => string.IsNullOrEmpty(tb.Text)))
+            {
+                new CustomMessageBox("All fields must be completed!",MessageType.Warning,MessageButtons.Ok).ShowDialog();
+                return false;
+            }
+            if (regex.IsMatch(emailTextBox.Text) == false)
+            {
+                new CustomMessageBox("Email entered wrong!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
+                return false;
+            }
+            if (startTimeDatePicker.SelectedDate.Value > endTimeDatePicker.SelectedDate.Value)
+            {
+                new CustomMessageBox("Start date must be before End date!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
+                return false;
+            }
+            if (cNPTextBox.Text.Length != 13)
+            {
+                new CustomMessageBox("CNP entered wrong!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
+                return false;
+            }
+            if (numberTextBox.Text.Length != 6)
+            {
+                new CustomMessageBox("Number entered wrong!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
+                return false;
+            }
+            if (seriesTextBox.Text.Length != 2)
+            {
+                new CustomMessageBox("Series entered wrong!", MessageType.Warning, MessageButtons.Ok).ShowDialog();
+                return false;
+            }
+            return true;
         }
     }
 }

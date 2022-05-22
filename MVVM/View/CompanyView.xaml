@@ -18,7 +18,7 @@
                     <GradientStop Color="#473765" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <DataGrid x:Name="companyDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,0,10,268" Width="880" Height="220">
+            <DataGrid x:Name="companyDataGrid" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,0,10,268" Width="880" Height="220">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="nameColumn" Width="150" Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn x:Name="addressColumn" Width="200" Header="Address" Binding="{Binding Address}"/>

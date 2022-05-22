@@ -19,7 +19,7 @@
                     <GradientStop Color="#473765" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <DataGrid x:Name="recordsDataGrid" SelectionUnit="FullRow" CanUserAddRows="False" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,65,10,74" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid x:Name="recordsDataGrid" IsReadOnly="True" SelectionUnit="FullRow" CanUserAddRows="False" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,65,10,74" RowDetailsVisibilityMode="VisibleWhenSelected">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="idRecordColumn" Binding="{Binding IdRecord}" Header="Id Record" Width="SizeToHeader"/>
                     <DataGridTemplateColumn x:Name="startTimeColumn" Header="Start Time" Width="120">

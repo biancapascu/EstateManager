@@ -27,7 +27,7 @@
                    HorizontalAlignment="Center"
                    FontFamily="/Fonts/#Poppins"/>
         <Border Margin="50,70,50,30" Style="{StaticResource border}">
-            <DataGrid x:Name="usersDataGrid" Margin="0,20,30,0" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" ColumnHeaderHeight="50" Height="342" Width="301">
+            <DataGrid x:Name="usersDataGrid" IsReadOnly="True" Margin="0,20,30,0" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" ColumnHeaderHeight="50" Height="342" Width="301">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="usernameColumn" Binding="{Binding Username}" Header="Username" Width="150"/>
                     <DataGridTextColumn x:Name="passwordColumn"  Binding="{Binding Password}" Header="Password" Width="150"/>

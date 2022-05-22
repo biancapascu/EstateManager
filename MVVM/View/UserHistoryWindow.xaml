@@ -11,7 +11,7 @@
         <CollectionViewSource x:Key="historyViewSource" d:DesignSource="{d:DesignInstance {x:Type DatabaseModel:History}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource historyViewSource}">
-        <DataGrid x:Name="historyDataGrid" Background="Transparent" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="72,30,49.6,107.4" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="historyDataGrid" IsReadOnly="True" Background="Transparent" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="72,30,49.6,107.4" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idHistoryColumn" Binding="{Binding IdHistory}" Header="Id History" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="usernameColumn" Binding="{Binding Username}" Header="Username" Width="120"/>

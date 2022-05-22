@@ -33,6 +33,7 @@ namespace EstateManager
                     String queryAdd = "INSERT INTO History (Username,DateTime) VALUES('" + txtUsername.Text + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
                     SqlCommand sqlCmdAdd = new SqlCommand(queryAdd, sqlCon);
                     sqlCmdAdd.ExecuteNonQuery();
+                    
                     MainWindow dashboard = new MainWindow(txtUsername.Text);
                     dashboard.Show();
                     this.Close();

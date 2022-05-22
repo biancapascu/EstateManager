@@ -18,12 +18,12 @@
                                                     FontFamily="/Fonts/#Poppins"
                                                     Margin="100 90 0 0"/>
 
-        <TextBlock Text="Welcome back&#xA;user!"
+        <TextBlock x:Name="welcomeUser" Text="Welcome back&#xA;user!"
                                    Foreground="White"
                                    FontSize="20"
                                    Margin="100 170 0 0"
                                    FontFamily="/Fonts/#Poppins"/>
-        <lvc:CartesianChart LegendLocation="None" Width="400" Margin="471,381,69,10">
+        <lvc:CartesianChart x:Name="reservationsMonthlyChart" LegendLocation="None" Width="400" Margin="471,381,69,10">
             <lvc:CartesianChart.DataTooltip>
                 <lvc:DefaultTooltip Background="#34226a" Foreground="#d5e2ff"/>
             </lvc:CartesianChart.DataTooltip>
@@ -42,7 +42,7 @@
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.Series>
-                <lvc:StackedColumnSeries Fill="#7155f9" MaxColumnWidth="15" Values="31,33,45,50,64,70,66,53,50,39,36,52"/>
+                <lvc:StackedColumnSeries x:Name="reservationsChartData"  Fill="#7155f9" MaxColumnWidth="15"/>
                 <lvc:StackedColumnSeries Fill="#101a28" MaxColumnWidth="15" Values="100,100,100,100,100,100,100,100,100,100,100,100"/>
             </lvc:CartesianChart.Series>
         </lvc:CartesianChart>

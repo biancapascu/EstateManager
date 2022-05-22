@@ -11,7 +11,6 @@ namespace EstateManager.MVVM.View
         public ReserveView()
         {
             InitializeComponent();
-            DataContext = this;
         }
     }
 }

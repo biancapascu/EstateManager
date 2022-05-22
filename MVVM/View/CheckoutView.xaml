@@ -29,7 +29,7 @@
                    FontFamily="/Fonts/#Poppins">
             </TextBlock>
         </Border>
-        <DataGrid x:Name="companyDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource companyViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,313,10,82">
+        <DataGrid x:Name="companyDataGrid" IsReadOnly="True" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource companyViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,313,10,82">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="150"/>
                 <DataGridTextColumn x:Name="addressColumn" Binding="{Binding Address}" Header="Address" Width="200"/>
@@ -45,7 +45,7 @@
                 <DataGridTextColumn x:Name="registrationColumn" Binding="{Binding Registration}" Header="Registration" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="recordsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,71,10,292">
+        <DataGrid x:Name="recordsDataGrid" IsReadOnly="True" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,71,10,292">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idRecordColumn" Binding="{Binding IdRecord}" Header="Id Record" Width="SizeToHeader"/>
                 <DataGridTemplateColumn x:Name="startTimeColumn" Header="Start Time" Width="120">

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:EstateManager.MVVM.View"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel"
+             xmlns:DatabaseModel="clr-namespace:DatabaseModel;assembly=DatabaseModel" 
              x:Class="EstateManager.MVVM.View.CheckinView" 
              mc:Ignorable="d" d:DesignHeight="540" d:DesignWidth="900" Background="Transparent" Loaded="UserControl_Loaded">
     <UserControl.Resources>
