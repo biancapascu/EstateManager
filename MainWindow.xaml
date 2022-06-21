@@ -209,7 +209,7 @@
                                      PreviewMouseLeftButtonDown="Close"/>
             </StackPanel>
         </Border>
-        <TextBlock x:Name="companyName" Text="Brilliant Rentals" Grid.Column="1" Grid.Row="0"
+        <TextBlock x:Name="companyName" Text="Company name" Grid.Column="1" Grid.Row="0"
                    Foreground="White"
                    FontSize="45"
                    HorizontalAlignment="Center"

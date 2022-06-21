@@ -1,4 +1,7 @@
 ﻿using EstateManager.MVVM.View;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Windows;
 using System.Windows.Input;
 
@@ -9,12 +12,15 @@ namespace EstateManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        string username;
         public MainWindow(string username)
         {
             InitializeComponent();
 
-            this.username = username;
+            DataRowCollection company = ConnectDB.GetDataTable("SELECT TOP 1 Name FROM Company").Rows;
+            foreach (DataRow row in company)
+            {
+                companyName.Text = Convert.ToString(row.ItemArray[0]);
+            }
 
             bool isAdmin = username == "admin" ? true : false;
 

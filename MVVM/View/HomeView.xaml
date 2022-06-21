@@ -90,7 +90,7 @@
 
                                 <TextBlock x:Name="totalBookings" Text="1790"
                                    Foreground="White"
-                                   FontSize="24"
+                                   FontSize="20"
                                    Margin="15,10,10,0" FontWeight="SemiBold"
                                    FontFamily="/Fonts/#Poppins"/>
                             </StackPanel>
@@ -138,7 +138,7 @@
                                    FontFamily="/Fonts/#Poppins"/>
                                 <TextBlock x:Name="peakSeason" Text="July"
                                    Foreground="White"
-                                   FontSize="24"
+                                   FontSize="20"
                                    Margin="15,10,10,0" FontWeight="SemiBold"
                                    FontFamily="/Fonts/#Poppins"/>
                             </StackPanel>
@@ -187,7 +187,7 @@
 
                                 <TextBlock x:Name="mostWanted" Text="Studio"
                                    Foreground="White"
-                                   FontSize="24"
+                                   FontSize="20"
                                    Margin="15,10,10,0" FontWeight="SemiBold"
                                    FontFamily="/Fonts/#Poppins"/>
                             </StackPanel>
@@ -239,7 +239,7 @@
 
                                 <TextBlock x:Name="topService" Text="pool"
                                    Foreground="White"
-                                   FontSize="24"
+                                   FontSize="20"
                                    Margin="15,10,10,0" FontWeight="SemiBold"
                                    FontFamily="/Fonts/#Poppins"/>
                             </StackPanel>
